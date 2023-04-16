@@ -1,28 +1,28 @@
 #pragma once
 class Human
 {
-	int number[20];
-	char lastname[20];
-	char Name[20];
-	char surname[20];
+	int number;
+	char lastname;
+	char name;
+	char surname;
 public:
-	Human(int num, char last, char name, char sur)
-		:number{ num }, lastname{ last }, year{ year }
+	Human(int num, char last, char nameP, char sur)
+		:number{ num }, lastname{ last }, name{ nameP }, surname{ sur }
 	{
-		std::cout << "Date constructed for " << this << '\n';
+		cout << "Human constructed for " << this << '\n';
 	}
-	Human() : Human(10, 11, 1998) {}
-	~Date() {
-		std::cout << "Date destructed for "
-			<< this << '\n';
+	Human() : Human(10, "Vasin", "Egor", "Sergeevich") {}
+	~Human() {
+		cout << "Human destructed for "	<< this << '\n';
 	}
 	void print() {
-		std::cout << day << '.' << month
-			<< '.' << year << '\n';
+		cout << number << '  ' << lastname << '  ' << name << '  ' << surname << '\n';
 	}
-	Date& setDay(int dayP) { day = dayP; return *this; }
-	Date& setMonth(int monthP) { month = monthP; return *this; }
-	Date& setYear(int yearP) { year = yearP; return *this; }
+	Human& setNumber(int numP) { number = numP; return *this; }
+	Human& setLastname(char lastP) { lastname = lastP; return *this; }
+	Human& setName(char nameP) { name = nameP; return *this; }
+	Human& setSurname(char surP) { surname = surP; return *this; }
+
 };
 
 class Date
