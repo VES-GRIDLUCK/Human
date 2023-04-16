@@ -3,9 +3,14 @@
 
 #include <iostream>
 #include "Human.h"
-
+using namespace std;
 int main()
 {
+    Human human1{ 10, "Vasin", "Egor", "Sergeevich" };
+    Human human2{ 10, "Vasin", "Ivan", "Sergeevich" };
+    human1.print();
+    human2.print();
+    
     Date date1{ 10,11,1998 };
     Date date2{ 10,03,2006 };
     date1.print();
