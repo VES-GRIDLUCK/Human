@@ -1,28 +1,42 @@
 #pragma once
 class Human
 {
-	int number;
-	char lastname;
-	char name;
-	char surname;
+private:
+	char* number;
+	char* lastname;
+	char* name;
+	char* surname;
 public:
-	Human(int num, char last, char nameP, char sur)
-		:number{ num }, lastname{ last }, name{ nameP }, surname{ sur }
-	{
-		cout << "Human constructed for " << this << '\n';
+	Human(const char* number, const char* lastname, const char* name, const char* surname) {
+		this->number = number ? new char[strlen(number) + 1] : nullptr;
+		this->lastname = lastname ? new char[strlen(lastname) + 1] : nullptr;
+		this->name = name ? new char[strlen(name) + 1] : nullptr;
+		this->surname = surname ? new char[strlen(surname) + 1] : nullptr;
+		for (int i = 0; i < strlen(number); i++)
+		{
+			this->number[i] = number[i];
+		}
+		for (int i = 0; i < strlen(lastname); i++)
+		{
+			this->lastname[i] = lastname[i];
+		}
+		for (int i = 0; i < strlen(name) ; i++)
+		{
+			this->name[i] = name[i];
+		}
+		for (int i = 0; i < strlen(surname); i++)
+		{
+			this->surname[i] = surname[i];
+		}
 	}
-	Human() : Human(10, "Vasin", "Egor", "Sergeevich") {}
+	
+	Human() : Human("10", "Vasin", "Egor", "Sergeevich") {}
 	~Human() {
 		cout << "Human destructed for "	<< this << '\n';
 	}
 	void print() {
 		cout << number << '  ' << lastname << '  ' << name << '  ' << surname << '\n';
 	}
-	Human& setNumber(int numP) { number = numP; return *this; }
-	Human& setLastname(char lastP) { lastname = lastP; return *this; }
-	Human& setName(char nameP) { name = nameP; return *this; }
-	Human& setSurname(char surP) { surname = surP; return *this; }
-
 };
 
 class Date
